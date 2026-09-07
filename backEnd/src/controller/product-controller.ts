@@ -14,19 +14,32 @@ class ProductController {
 
     public constructor() {
 
+        this.router.get("/api/admin/products", this.getAllProductsForAdmin);
+
         this.router.get("/api/products", this.getAllProducts);
         this.router.get("/api/products/:_id", this.getOneProduct);
 
         this.router.post("/api/products", this.addProduct);
         this.router.put("/api/products/:_id", this.updateProduct);
 
+        this.router.patch("/api/products/:_id/restore", this.restoreProduct);
+
         this.router.delete("/api/products/:_id", this.deleteProduct);
 
     }
 
+      // Get All product For admin
+    private async getAllProductsForAdmin(request:Request, response:Response, next:NextFunction):Promise<void>{
+        try{
+            const products = await productService.getAllProductsForAdmin();
+            response.json(products)
+        }
+        catch(err:any){
+            next(err);
+        }
+    }
 
-
-    // Get All product
+    // Get All product For users
     private async getAllProducts(request:Request, response:Response, next:NextFunction):Promise<void>{
         try{
             const products = await productService.getAllProducts();
@@ -153,6 +166,24 @@ class ProductController {
             next(err)
         }
 
+    }
+
+
+
+    //Restore product
+    private async restoreProduct(request:Request, response:Response, next:NextFunction):Promise<void>{
+
+        try {
+
+            const _id = String(request.params._id);
+
+            const restoreProduct = await productService.restoreProduct(_id);
+
+            response.json(restoreProduct);
+
+        } catch(err:any){
+            next(err)
+        }
     }
 }
 

@@ -4,7 +4,15 @@ import { IProduct, ProductModel } from "../model/product-model";
 
 class ProductService {
 
-    //Get All products
+
+
+     //Get All products For Admin 
+    public async getAllProductsForAdmin(): Promise<IProduct[]> {
+
+        return ProductModel.find().exec();
+    }
+
+    //Get All products For user 
     public async getAllProducts(): Promise<IProduct[]> {
 
         return ProductModel.find({isActive: true}).exec();
@@ -53,6 +61,26 @@ class ProductService {
 
         if (!dbProduct) throw new ClientError(StatusCode.NotFound, `_id ${_id} not exists`)
 
+    }
+
+
+
+    //Restore Product
+    public async restoreProduct(_id: string): Promise<IProduct>{
+        const dbProduct = await ProductModel.findByIdAndUpdate(
+            _id,
+            {isActive: true},
+            {
+                returnDocument:"after",
+                runValidators: true
+            }
+        ).exec();
+
+        if(!dbProduct) {
+            throw new ClientError(StatusCode.NotFound, `_id ${ _id} not exists`)
+        }
+
+        return dbProduct;
     }
 }
 

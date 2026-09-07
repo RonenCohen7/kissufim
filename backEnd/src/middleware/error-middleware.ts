@@ -1,27 +1,39 @@
 import { NextFunction, Request, Response } from "express";
-import { StatusCode } from "../3-models/enums";
-import { ClientError } from "../3-models/client-error";
-import { appConfig } from "../2-utils/app-config";
-import { logger } from "../2-utils/logger";
+import { StatusCode } from "../model/enums";
+import { appConfig } from "../utils/app-config";
+import { ClientError } from "../model/client-error";
+
+
 
 class ErrorMiddleware {
 
     // Catch-All Middleware
-    public async catchAll(err: any, request: Request, response: Response, next: NextFunction) {
+    public catchAll(err: any, request: Request, response: Response, next: NextFunction): void {
 
-        // Log error: 
-        err.clientIp = request.clientIp;
-        console.log(err);
-        await logger.logError(err);
+        const status =
+            err.status || StatusCode.InternalServerError;
 
-        // Take error status or 500 if not found: 
-        const status = err.status || StatusCode.InternalServerError;
+        let message: string;
 
-        // Take error message, never return crash errors in production: 
-        const message = (status === StatusCode.InternalServerError && appConfig.isProduction) ? "Some error, please try again." : err.message;
+        if (
+            status === StatusCode.InternalServerError &&
+            appConfig.isProduction
+        ) {
+            message = "Some error, please try again.";
+        }
+        else if (typeof err.message === "string") {
+            message = err.message;
+        }
+        else if (err.message) {
+            message = JSON.stringify(err.message);
+        }
+        else {
+            message = String(err);
+        }
 
-        // Response back the error: 
-        response.status(status).send({ error: message });
+        response.status(status).json({
+            error: message
+        });
     }
 
     // Route not found: 
