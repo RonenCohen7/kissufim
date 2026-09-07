@@ -6,6 +6,7 @@ import { StatusCode } from "../model/enums";
 import { STATUS_CODES } from "node:http";
 import { UploadedFile } from "express-fileupload";
 import { productImage } from "../utils/product-image";
+import { authMiddleware } from "../middleware/auth-middleware";
 
 
 class ProductController {
@@ -14,7 +15,7 @@ class ProductController {
 
     public constructor() {
 
-        this.router.get("/api/admin/products", this.getAllProductsForAdmin);
+        this.router.get("/api/admin/products",authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.getAllProductsForAdmin);
 
         this.router.get("/api/products", this.getAllProducts);
         this.router.get("/api/products/:_id", this.getOneProduct);

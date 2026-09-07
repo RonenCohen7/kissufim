@@ -13,6 +13,7 @@ class AppConfig {
     public readonly productsImagesPath =
     process.env.PRODUCTS_IMAGES_PATH || "uploads/products";
 
+    public readonly jwtSecret = process.env.JWT_SECRET || "development-secret";
     
     public readonly port = process.env.PORT;
     public readonly mongodbConnectionString = process.env.MONGO_CONNECTION_STRING!;

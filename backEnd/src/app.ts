@@ -7,6 +7,7 @@ import { productController } from "./controller/product-controller";
 import fileUpload from "express-fileupload";
 import path from "path";
 import { errorMiddleware } from "./middleware/error-middleware";
+import { authController } from "./controller/auth-controller";
 
 
 const server = express();
@@ -26,6 +27,7 @@ const server = express();
 
 
     server.use(productController.router);
+    server.use(authController.router);
 
     // Route not found:
     server.use(errorMiddleware.routeNotFound);
