@@ -1,0 +1,205 @@
+.ProductList {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #faf7f2;
+    color: #292524;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.ProductList .products-header {
+    padding: 75px 0 55px;
+
+    text-align: center;
+
+    background-color: #faf7f2;
+}
+
+
+.ProductList .products-overline {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #bf7d83;
+
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+}
+
+
+.ProductList .products-title {
+    margin-bottom: 14px;
+
+    color: #292524;
+
+    font-weight: 400;
+}
+
+
+.ProductList .products-subtitle {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #756c68;
+
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.ProductList .products-section {
+    padding: 25px 0 100px;
+}
+
+
+.ProductList .product-card {
+    width: 100%;
+
+    cursor: pointer;
+}
+
+.ProductList .product-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: #f3eeea;
+}
+
+.ProductList .product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.6s ease;
+}
+
+.ProductList .product-card:hover .product-image img {
+    transform: scale(1.04);
+}
+
+
+.ProductList .product-card:hover .product-image img {
+    transform: scale(1.025);
+}
+
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.ProductList .product-info {
+    padding: 18px 4px 28px;
+
+    text-align: center;
+}
+
+
+.ProductList .product-name {
+    margin-bottom: 6px;
+
+    color: #292524;
+
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+.ProductList .product-price {
+    color: #756c68;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   NO IMAGE
+========================= */
+
+.ProductList .product-no-image {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #bf7d83;
+
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+}
+
+
+/* =========================
+   STATES
+========================= */
+
+.ProductList.product-list-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 60vh;
+}
+
+
+.ProductList .products-empty,
+.ProductList .products-error {
+    padding: 60px 0;
+
+    text-align: center;
+
+    color: #756c68;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .ProductList .product-image {
+        height: 380px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .ProductList .products-header {
+        padding: 55px 0 40px;
+    }
+
+
+    .ProductList .products-title {
+        font-size: 2rem;
+    }
+
+
+    .ProductList .products-section {
+        padding-bottom: 70px;
+    }
+
+
+    .ProductList .product-image {
+        height: 420px;
+    }
+
+}

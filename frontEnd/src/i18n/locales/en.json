@@ -1,0 +1,155 @@
+{
+    "common": {
+        "loading": "Loading...",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "back": "Back",
+        "search": "Search",
+        "yes": "Yes",
+        "no": "No",
+        "currency": "₪"
+    },
+    "menu": {
+        "shipping": "Free shipping on orders over ₪299",
+        "naomi": "Naomi 💔",
+        "new": "New",
+        "necklaces": "Necklaces",
+        "earrings": "Earrings",
+        "rings": "Rings",
+        "bracelets": "Bracelets",
+        "favorites": "Most Loved",
+        "gifts": "Gifts",
+        "search": "Search",
+        "account": "My Account",
+        "wishlist": "Favorites",
+        "cart": "Shopping Bag"
+    },
+    "footer": {
+        "message": "Jewelry created to keep meaningful moments close.",
+        "developedBy": "Design & Development by"
+    },
+    "home": {
+        "hero": {
+            "overline": "Handmade Jewelry",
+            "titleLine1": "Some things are",
+            "titleLine2": "meant to stay close",
+            "descriptionLine1": "Jewelry created from memory, touch",
+            "descriptionLine2": "and moments that stay with us.",
+            "button": "Discover the Collection"
+        },
+        "categories": {
+            "title": "Every Longing Has a Form",
+            "subtitle": "Discover the piece you'll want to keep close",
+            "rings": "Rings",
+            "necklaces": "Necklaces",
+            "earrings": "Earrings",
+            "bracelets": "Bracelets"
+        },
+        "story": {
+            "overline": "Kisuufim",
+            "title": "Made by Hand",
+            "description": "Each piece is created with attention to the smallest details, inspired by memory, touch and the moments we choose to keep close."
+        }
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "email": "Email",
+            "password": "Password",
+            "button": "Login",
+            "noAccount": "Don't have an account yet?",
+            "register": "Register"
+        },
+        "register": {
+            "title": "Create Account",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phone": "Phone",
+            "city": "City",
+            "address": "Address",
+            "password": "Password",
+            "button": "Register",
+            "haveAccount": "Already have an account?",
+            "login": "Login"
+        }
+    },
+    "products": {
+        "title": "Our Jewelry",
+        "all": "All Jewelry",
+        "price": "Price",
+        "stock": "Stock",
+        "category": "Category",
+        "description": "Description",
+        "addToCart": "Add to Bag",
+        "outOfStock": "Out of Stock",
+        "empty": "No products found",
+        "subtitle": "Handmade jewelry created to keep meaningful moments close.",
+        "loadError": "We couldn't load the jewelry. Please try again later."
+    },
+    "admin": {
+        "products": {
+            "title": "Product Management",
+            "addProduct": "Add Product",
+            "editProduct": "Edit Product",
+            "name": "Product Name",
+            "description": "Description",
+            "price": "Price",
+            "category": "Category",
+            "stock": "Stock",
+            "image": "Image",
+            "active": "Active",
+            "inactive": "Inactive",
+            "restore": "Restore"
+        },
+        "orders": {
+            "title": "Order Management",
+            "status": "Status",
+            "customer": "Customer",
+            "total": "Total",
+            "date": "Date"
+        }
+    },
+    "orders": {
+        "status": {
+            "pending": "Pending",
+            "paid": "Paid",
+            "processing": "Processing",
+            "shipped": "Shipped",
+            "completed": "Completed",
+            "cancelled": "Cancelled"
+        }
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "description": "The page you're looking for doesn't exist.",
+        "button": "Back to Home"
+    },
+    "home": {
+        "hero": {
+            "overline": "Handmade Jewelry",
+            "titleLine1": "Some things are",
+            "titleLine2": "meant to stay close",
+            "descriptionLine1": "Jewelry created from memory, touch",
+            "descriptionLine2": "and moments that stay with us.",
+            "button": "Discover the Collection",
+            "imageAlt": "Kisuufim jewelry"
+        },
+        "categories": {
+            "title": "Every Longing Has a Form",
+            "subtitle": "Discover the piece you'll want to keep close",
+            "rings": "Rings",
+            "necklaces": "Necklaces",
+            "earrings": "Earrings",
+            "bracelets": "Bracelets"
+        },
+        "story": {
+            "overline": "Kisuufim",
+            "title": "Made by Hand",
+            "description": "Each piece is handmade with attention to the smallest details, inspired by memory, touch and the moments we choose to keep close."
+        }
+    }
+}

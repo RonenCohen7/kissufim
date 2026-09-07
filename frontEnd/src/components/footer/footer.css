@@ -1,0 +1,97 @@
+.Footer {
+    width: 100%;
+    background-color: black;
+    color: #faf7f2;
+    
+}
+
+
+.Footer .footer-main {
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 45px 20px;
+
+    text-align: center;
+}
+
+
+.Footer .footer-brand {
+    margin-bottom: 20px;
+}
+
+
+.Footer .footer-logo {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 6px;
+}
+
+
+.Footer .footer-hebrew {
+    margin-top: 8px;
+
+    color: #d8c6ae;
+
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+
+.Footer .footer-message {
+    max-width: 450px;
+
+    color: #cfc7c2;
+
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+
+.Footer .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 55px;
+
+    border-top: 1px solid #0d0d0df7;
+
+    color: #a9a19c;
+
+    font-size: 0.72rem;
+}
+
+
+.Footer .footer-credit a {
+    color: #d8c6ae;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.Footer .footer-credit a:hover {
+    color: #bf7d83;
+}
+
+
+@media (max-width: 600px) {
+
+    .Footer .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+
+        padding: 18px 20px;
+
+        text-align: center;
+    }
+
+}

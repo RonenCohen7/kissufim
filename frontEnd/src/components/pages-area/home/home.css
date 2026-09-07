@@ -1,0 +1,178 @@
+.Home {
+    width: 100%;
+}
+.Home .hero-grid {
+    align-items: center;
+}
+
+/* Hero */
+.Home .hero-content {
+    direction: rtl;
+    text-align: right;
+}
+.Home .hero-section {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    background: #f7f3ee;
+}
+
+.Home .hero-content {
+    text-align: left;
+}
+
+.Home .hero-overline {
+    letter-spacing: 3px;
+}
+
+.Home .hero-title {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.Home .hero-description {
+    margin-bottom: 32px;
+    max-width: 520px;
+    color: #746e68;
+}
+
+.Home .hero-button {
+    padding: 12px 40px;
+}
+
+.Home .hero-image {
+    width: 100%;
+    height: 560px;
+    overflow: hidden;
+    background-color: #eee7df;
+}
+
+.Home .hero-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.7s ease;
+}
+
+.Home .hero-image:hover img {
+    transform: scale(1.025);
+}
+
+
+/* Categories */
+
+.Home .categories-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.Home .categories-title {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.Home .categories-subtitle {
+    text-align: center;
+    margin-bottom: 48px;
+    color: #746e68;
+}
+
+.Home .category-card {
+    cursor: pointer;
+}
+
+.Home .category-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: #f3eeea;
+}
+
+.Home .category-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.6s ease;
+}
+
+.Home .category-card:hover .category-image img {
+    transform: scale(1.04);
+}
+
+.Home .category-title {
+    text-align: center;
+}
+
+
+/* Story */
+
+.Home .story-section {
+    background: #f8f6f3;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.Home .story-content {
+    text-align: center;
+}
+
+.Home .story-overline {
+    letter-spacing: 3px;
+}
+
+.Home .story-title {
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.Home .story-description {
+    color: #746e68;
+    line-height: 2;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .Home .hero-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .Home .hero-content {
+        text-align: center;
+    }
+
+    .Home .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Home .hero-image {
+        height: 350px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .Home .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .Home .category-image {
+        height: 280px;
+    }
+
+}

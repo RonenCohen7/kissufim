@@ -14,7 +14,11 @@ import { orderController } from "./controller/order-controller";
 const server = express();
 
     server.use(cors());
-    server.use(helmet());
+    server.use(helmet({
+          crossOriginResourcePolicy: {
+            policy: "cross-origin"
+        }
+    }));
     server.use(express.json());
 
     server.use(fileUpload({
