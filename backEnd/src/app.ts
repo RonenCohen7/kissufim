@@ -8,6 +8,7 @@ import fileUpload from "express-fileupload";
 import path from "path";
 import { errorMiddleware } from "./middleware/error-middleware";
 import { authController } from "./controller/auth-controller";
+import { orderController } from "./controller/order-controller";
 
 
 const server = express();
@@ -25,9 +26,10 @@ const server = express();
 
     server.use("/api/images/products", express.static(path.join(process.cwd(), "uploads", "products")))
 
-
+    //Controllers
     server.use(productController.router);
     server.use(authController.router);
+    server.use(orderController.router);
 
     // Route not found:
     server.use(errorMiddleware.routeNotFound);
