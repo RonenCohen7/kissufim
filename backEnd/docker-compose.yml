@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: mongo:8
+    container_name: kissufim-mongodb
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    volumes:
+      - kissufim_mongo_data:/data/db
+
+volumes:
+  kissufim_mongo_data:
