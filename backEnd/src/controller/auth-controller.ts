@@ -1,7 +1,9 @@
 import express, { Request, Response, NextFunction } from "express";
-import { UserModel } from "../model/user-model";
+import { IUser, UserModel } from "../model/user-model";
 import { authService } from "../services/auth-service";
 import { StatusCode } from "../model/enums";
+import { ClientError } from "../model/client-error";
+import { authMiddleware } from "../middleware/auth-middleware";
 
 
 
@@ -13,6 +15,8 @@ class AuthController {
 
         this.router.post("/api/auth/register", this.register);
         this.router.post("/api/auth/login", this.login);
+
+        this.router.get("/api/auth/me", authMiddleware.verifyLoggedIn, this.getCurrentUser);
 
 
     }
@@ -53,6 +57,24 @@ class AuthController {
             next(err)
         }
     }
+
+
+    //Get current user
+    private async getCurrentUser(request:Request, response:Response, next:NextFunction):Promise<void>{
+
+        try {
+
+            const userId = response.locals.user.userId;
+
+            const user = await authService.getCurrentUser(userId);
+
+            response.json(user);
+
+        } catch(err:any){
+            next(err)
+        }
+    }
+
 
 }
 

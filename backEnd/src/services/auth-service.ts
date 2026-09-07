@@ -77,6 +77,18 @@ class AuthService {
     return token;
 }
 
+
+
+    //Get Current User
+    public async getCurrentUser(userId: string):Promise<IUser>{
+
+        const user = await UserModel.findById(userId).exec();
+
+        if(!user) {
+            throw new ClientError(StatusCode.NotFound, ` User ${userId} not found`)
+        }
+        return user;
+    }
     
 }
 
