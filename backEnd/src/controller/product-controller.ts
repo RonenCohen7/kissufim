@@ -17,15 +17,18 @@ class ProductController {
 
         this.router.get("/api/admin/products",authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.getAllProductsForAdmin);
 
+        //Public
         this.router.get("/api/products", this.getAllProducts);
         this.router.get("/api/products/:_id", this.getOneProduct);
 
-        this.router.post("/api/products", this.addProduct);
-        this.router.put("/api/products/:_id", this.updateProduct);
 
-        this.router.patch("/api/products/:_id/restore", this.restoreProduct);
+        //Admin
+        this.router.post("/api/products",authMiddleware.verifyLoggedIn,authMiddleware.verifyAdmin, this.addProduct);
+        this.router.put("/api/products/:_id", authMiddleware.verifyLoggedIn,authMiddleware.verifyAdmin, this.updateProduct);
 
-        this.router.delete("/api/products/:_id", this.deleteProduct);
+        this.router.patch("/api/products/:_id/restore", authMiddleware.verifyLoggedIn,authMiddleware.verifyAdmin, this.restoreProduct);
+
+        this.router.delete("/api/products/:_id", authMiddleware.verifyLoggedIn,authMiddleware.verifyLoggedIn, this.deleteProduct);
 
     }
 
