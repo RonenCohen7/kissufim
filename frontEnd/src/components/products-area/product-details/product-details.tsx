@@ -1,12 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import {  useEffect, useState } from "react";
 
-import {
-    Button,
-    CircularProgress,
-    Container,
-    Typography
-} from "@mui/material";
+import {Button,CircularProgress,Container,Typography} from "@mui/material";
 
 import { useTranslation } from "react-i18next";
 
@@ -15,6 +10,7 @@ import "./product-details.css";
 import { productService } from "../../../service/product-service";
 import type { productModel } from "../../../models/product-model";
 import { authService } from "../../../service/auth-service";
+import { cartService } from "../../../service/cart-service";
 
 
 export function ProductDetails() {
@@ -117,18 +113,18 @@ export function ProductDetails() {
         );
     }
 
-    const handleAddToCard = () =>{
-        const token = localStorage.getItem("token")
+    const handleAddToCart = () =>{
+    console.log("click add to cart...");
+    
+      cartService.addToCart({
+        productId: product._id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+        imageUrl: product.imageUrl!
+      })
 
-        if(!token) {
-            navigate("/login", {
-                state: {
-                    returnTo: `/product-details/${product._id}`
-                }
-            })
-            return;
-        }
-        navigate(`/orders/new/${product._id}`)
+      navigate("/cart")
     }
 
     return (
@@ -262,7 +258,7 @@ export function ProductDetails() {
                                 variant="contained"
                                 size="large"
                                 className="product-details-button"
-                                onClick={handleAddToCard}
+                                onClick={handleAddToCart}
                             >
                                 {t("products.addToCart")}
                             </Button>

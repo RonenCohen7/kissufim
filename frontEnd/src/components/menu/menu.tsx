@@ -5,7 +5,7 @@ import {
     Search,
     ShoppingBagOutlined
 } from "@mui/icons-material";
-
+import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -138,8 +138,17 @@ export function Menu() {
                     <IconButton
                         className="header-icon"
                         aria-label={t("menu.cart")}
+                        onClick={()=> navigate("/cart")}
                     >
                         <ShoppingBagOutlined />
+                    </IconButton>
+
+                     <IconButton
+                        className="header-icon"
+                        aria-label={t("menu.cart")}
+                        onClick={()=> navigate("/products")}
+                    >
+                        <StorefrontOutlinedIcon />
                     </IconButton>
 
                 </div>

@@ -1,0 +1,231 @@
+.Cart {
+    min-height: 70vh;
+    padding: 60px 0;
+}
+
+
+/* Header */
+
+.Cart .cart-overline {
+    display: block;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #BF7D83;
+}
+
+.Cart .cart-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+
+/* Products container */
+/* אצלך ה-container החיצוני גם נקרא cart-item */
+
+.Cart > .MuiContainer-root > .cart-item {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 28px;
+
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* Individual product */
+
+.Cart > .MuiContainer-root > .cart-item > .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    width: 280px;
+    padding: 0 0 20px;
+
+    border-bottom: 1px solid #E8D1D2;
+}
+
+
+.Cart .cart-item-image {
+    width: 120px;
+    height: 120px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 6px;
+}
+
+
+.Cart .cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.Cart .cart-item-name {
+    margin-bottom: 8px;
+}
+
+
+.Cart .cart-item-price {
+    margin-bottom: 12px;
+}
+
+
+/* Quantity */
+
+.Cart .cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    white-space: nowrap;
+}
+
+
+.Cart .cart-item-quantity button {
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    border: 1px solid #D8C6AE;
+    background: transparent;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.Cart .cart-item-quantity button:hover {
+    border-color: #BF7D83;
+}
+
+
+/* Remove */
+
+.Cart .cart-remove-button {
+    display: block;
+
+    margin-top: 10px;
+    padding: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #BF7D83;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+
+.Cart .cart-remove-button:hover {
+    color: #A96C72;
+    text-decoration: underline;
+}
+
+
+/* Empty cart */
+
+.Cart .cart-empty {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+/* Summary */
+/* שומר בדיוק על השם cart-summery שיש אצלך ב-TSX */
+
+.Cart .cart-summery {
+    width: min(900px, calc(100% - 48px));
+
+    margin: 32px auto 14px;
+    padding-top: 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid #D8C6AE;
+}
+
+
+.Cart .cart-summery p:first-child {
+    font-size: 18px;
+}
+
+
+.Cart .cart-summery p:last-child {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+
+/* Checkout button */
+/* הכפתור נמצא ישירות בתוך Cart בקוד שלך */
+
+.Cart > .MuiButton-root {
+    display: block;
+
+    min-width: 220px;
+
+    margin: 0 auto;
+
+    padding: 12px 32px;
+
+    border-radius: 0;
+
+    background-color: #BF7D83;
+
+    text-transform: none;
+}
+
+
+.Cart > .MuiButton-root:hover {
+    background-color: #A96C72;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .Cart {
+        padding: 40px 0;
+    }
+
+    .Cart .cart-title {
+        margin-bottom: 35px;
+    }
+
+    .Cart > .MuiContainer-root > .cart-item {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .Cart > .MuiContainer-root > .cart-item > .cart-item {
+        width: 100%;
+    }
+
+    .Cart .cart-item-image {
+        width: 90px;
+        height: 90px;
+    }
+
+    .Cart .cart-summery {
+        width: calc(100% - 32px);
+    }
+
+    .Cart > .MuiButton-root {
+        width: calc(100% - 32px);
+    }
+}

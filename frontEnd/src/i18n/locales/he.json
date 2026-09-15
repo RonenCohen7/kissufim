@@ -107,6 +107,35 @@
         "created": "הזמנה נוצרה",
         "loading": "טוען..."
     },
+    "orderDetails": {
+    "title": "פרטי ההזמנה",
+    "subtitle": "תודה שבחרתם בכיסופים. פרטי ההזמנה שלכם מופיעים כאן.",
+    "orderNumber": "מספר הזמנה",
+    "date": "תאריך הזמנה",
+    "status": "סטטוס",
+    "items": "פריטים בהזמנה",
+    "quantity": "כמות",
+    "shipping": "פרטי משלוח",
+    "apartment": "דירה",
+    "total": "סה״כ"
+    
+},
+    "cart": {
+        "title": "סל הקניות",
+        "empty": "סל הקניות שלך ריק",
+        "quantity": "כמות",
+        "remove": "הסרה מהסל",
+        "total": "סה״כ",
+        "checkout": "המשך להזמנה"
+    },
+"orderStatus": {
+    "pending": "ממתינה לתשלום",
+    "paid": "שולמה",
+    "processing": "בטיפול",
+    "shipped": "נשלחה",
+    "completed": "הושלמה",
+    "cancelled": "בוטלה"
+},
     "products": {
         "title": "התכשיטים שלנו",
         "all": "כל התכשיטים",

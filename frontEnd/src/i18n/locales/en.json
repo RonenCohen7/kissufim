@@ -117,6 +117,7 @@
             "loginRequired": "Admin login is required"
         }
     },
+    
     "newOrder": {
         "title": "New Order",
         "customerDetails": "Customer Details",
@@ -128,6 +129,34 @@
         "created": "Order Created",
         "loading": "Loading..."
     },
+    "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your shopping cart is empty",
+    "quantity": "Quantity",
+    "remove": "Remove from cart",
+    "total": "Total",
+    "checkout": "Continue to Checkout"
+},
+    "orderDetails": {
+    "title": "Order Details",
+    "subtitle": "Thank you for choosing KISUUFIM. Your order details are shown below.",
+    "orderNumber": "Order Number",
+    "date": "Order Date",
+    "status": "Status",
+    "items": "Order Items",
+    "quantity": "Quantity",
+    "shipping": "Shipping Details",
+    "apartment": "Apartment",
+    "total": "Total"
+},
+"orderStatus": {
+    "pending": "Pending Payment",
+    "paid": "Paid",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+},
     "products": {
         "title": "Our Jewelry",
         "all": "All Jewelry",

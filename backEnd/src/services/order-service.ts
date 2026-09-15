@@ -33,7 +33,7 @@ class OrderService {
     public async getOneOrder(_id: string, userId: string): Promise<IOrder> {
 
         const order = await OrderModel
-            .findById(_id, userId)
+            .findById(_id)
             .exec();
 
         if (!order) {
