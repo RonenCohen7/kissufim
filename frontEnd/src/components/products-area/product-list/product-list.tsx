@@ -12,11 +12,14 @@ import type { productModel } from "../../../models/product-model";
 
 import "./product-list.css";
 import { productService } from "../../../service/product-service";
+import { useNavigate } from "react-router-dom";
 
 
 export function ProductList() {
 
     const { t } = useTranslation();
+
+    const navigate = useNavigate();
 
     const [products, setProducts] = useState<productModel[]>([]);
     const [loading, setLoading] = useState(true);
@@ -143,7 +146,7 @@ export function ProductList() {
 
                                     <article className="product-card">
 
-                                        <div className="product-image">
+                                        <div className="product-image" onClick={()=> navigate(`/product-details/${product._id}`)}>
 
                                             {product.imageUrl ? (
 

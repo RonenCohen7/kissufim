@@ -6,16 +6,25 @@ import {
     ShoppingBagOutlined
 } from "@mui/icons-material";
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import "./menu.css";
+import { useEffect, useState } from "react";
+
+import { authService } from "../../service/auth-service";
+import type { userModel } from "../../models/user-model";
+
 
 
 export function Menu() {
 
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
+
+    const location = useLocation();
+
+    const [user, setUser] = useState<userModel | null>(null);
 
     const changeLanguage = () => {
         i18n.changeLanguage(
@@ -26,6 +35,33 @@ export function Menu() {
     const goToProducts = () => {
         navigate("/products");
     };
+
+    const logout = () => {
+        localStorage.removeItem("token")
+        setUser(null)
+        navigate("/")
+    }
+
+    useEffect(() => {
+
+        const token = localStorage.getItem("token")
+        if (!token) {
+            setUser(null)
+            return;
+        }
+
+        authService
+            .getCurrentUser(token)
+            .then(currentUser => {
+                setUser(currentUser)
+            })
+            .catch(() => {
+                localStorage.removeItem("token")
+                setUser(null)
+            })
+
+    }, [location.pathname]);
+
 
 
     return (
@@ -50,7 +86,7 @@ export function Menu() {
                         {i18n.language === "he" ? "EN" : "עברית"}
                     </button>
 
-              
+
 
 
                     <IconButton
@@ -69,6 +105,26 @@ export function Menu() {
                         <FavoriteBorder />
                     </IconButton>
 
+                    {/* Logged user */}
+
+                    {user && (
+                        <div className="logged-user-area">
+
+                            <span className="logged-user-name">
+                                {t("menu.helloUser", {
+                                    name: user.firstName
+                                })}
+                            </span>
+
+                            <button className="logout-button"
+                                onClick={logout}>
+                                {t("menu.logout")}
+
+                            </button>
+
+                        </div>
+
+                    )}
 
                     <IconButton
                         className="header-icon"
@@ -96,11 +152,11 @@ export function Menu() {
                 >
 
                     <div className="brand-name">
-                        KISSUFIM
+                        {t("menu.KISSUFIM")}
                     </div>
 
                     <div className="brand-hebrew">
-                        כיסופים
+                        {t("menu.KISSUFIM")}
                     </div>
 
                 </div>
@@ -114,37 +170,50 @@ export function Menu() {
             {/* Navigation */}
             <nav className="main-navigation">
 
-                <button onClick={goToProducts}>
+                {/* Admin only*/}
+
+                {user?.role === "admin" && (
+
+                    <button onClick={() => navigate("/product/add")}>
+                        {t("menu.addProduct")}
+                    </button>
+
+
+                )}
+
+                {/* <button onClick={goToProducts}>
+                    {t("menu.new")}
+                </button> */}
+
+                <button onClick={() => navigate("/noami-page")}>
                     {t("menu.naomi")}
                 </button>
 
-                <button onClick={goToProducts}>
-                    {t("menu.new")}
-                </button>
+
 
                 <button onClick={goToProducts}>
                     {t("menu.necklaces")}
                 </button>
-
+                {/* 
                 <button onClick={goToProducts}>
                     {t("menu.earrings")}
-                </button>
+                </button> */}
 
-                <button onClick={goToProducts}>
+                {/* <button onClick={goToProducts}>
                     {t("menu.rings")}
-                </button>
+                </button> */}
 
-                <button onClick={goToProducts}>
+                {/* <button onClick={goToProducts}>
                     {t("menu.bracelets")}
-                </button>
+                </button> */}
 
                 <button onClick={goToProducts}>
                     {t("menu.favorites")}
                 </button>
 
-                <button onClick={goToProducts}>
+                {/* <button onClick={goToProducts}>
                     {t("menu.gifts")}
-                </button>
+                </button> */}
 
             </nav>
 

@@ -1,0 +1,498 @@
+/* =========================================
+   Product Details Page
+========================================= */
+
+.ProductDetails {
+    position: relative;
+
+    width: 100%;
+    min-height: auto;
+
+    padding: 30px 0 35px;
+
+    background-color: #faf7f2;
+    color: #292524;
+
+    overflow: hidden;
+}
+
+.ProductDetails .product-details-edit-button {
+    min-width: 220px;
+    padding: 11px 20px;
+
+    border-color: #bf7d83;
+    border-radius: 0;
+
+    color: #bf7d83;
+}
+
+.ProductDetails .product-details-edit-button:hover {
+    border-color: #a96c72;
+    background-color: #faf7f2;
+}
+/* =========================================
+   Background
+========================================= */
+
+.ProductDetails::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(250, 247, 242, 0.88),
+            rgba(250, 247, 242, 0.95)
+        ),
+        url("../../../assets/images/gpt5.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.5;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   Container
+========================================= */
+
+.ProductDetails > .MuiContainer-root {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================
+   Main Layout
+========================================= */
+
+.ProductDetails .product-details-layout {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 80px;
+
+    direction: ltr;
+}
+
+
+/* =========================================
+   Story - Left Side
+========================================= */
+
+.ProductDetails .product-details-story {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 0;
+    min-width: 0;
+
+    padding: 0 20px;
+
+    direction: rtl;
+    text-align: right;
+}
+
+
+.ProductDetails .product-story-overline {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #bf7d83;
+
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+}
+
+
+.ProductDetails .product-story-title {
+    margin: 0;
+
+    color: #292524;
+
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+
+.ProductDetails .product-story-line {
+    width: 65px;
+    height: 1px;
+
+    margin: 20px 0 22px auto;
+
+    background-color: #bf7d83;
+}
+
+
+.ProductDetails .product-story-text {
+    max-width: 500px;
+
+    margin: 0 0 14px auto;
+
+    color: #756c68;
+
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+.ProductDetails .product-story-signature {
+    margin-top: 25px;
+
+    color: #bf7d83;
+
+    font-family: cursive;
+    font-size: 1.6rem;
+    line-height: 1.4;
+
+    text-align: center;
+
+    direction: ltr;
+}
+
+
+/* =========================================
+   Product Side - Right Side
+========================================= */
+
+.ProductDetails .product-side {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 0;
+    min-width: 0;
+
+    direction: rtl;
+}
+
+
+/* =========================================
+   Product Image
+========================================= */
+
+.ProductDetails .product-details-content {
+    display: flex;
+
+    flex: 1 1 auto;
+
+    width: 100%;
+}
+
+
+.ProductDetails .product-details-image {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-height: 260px;
+
+    overflow: hidden;
+
+    background-color: #f3eeea;
+
+    border-radius: 12px;
+}
+
+
+.ProductDetails .product-details-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.ProductDetails .product-details-no-image {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #bf7d83;
+
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   Product Information
+========================================= */
+
+.ProductDetails .product-details-info {
+    flex: 0 0 auto;
+
+    width: 100%;
+
+    padding-top: 10px;
+
+    text-align: right;
+}
+
+
+.ProductDetails .product-details-overline {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #bf7d83;
+
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+}
+
+
+.ProductDetails .product-details-name {
+    margin-bottom: 8px;
+
+    color: #292524;
+
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+
+.ProductDetails .product-details-price {
+    color: #756c68;
+
+    font-size: 1.05rem;
+}
+
+
+.ProductDetails .product-details-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 16px 0;
+
+    background-color: #e8ded8;
+}
+
+
+.ProductDetails .product-details-description {
+    margin-bottom: 12px;
+
+    color: #756c68;
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+.ProductDetails .product-details-category {
+    margin-bottom: 18px;
+
+    color: #756c68;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   Button
+========================================= */
+
+.ProductDetails .product-details-button {
+    min-width: 220px;
+
+    padding: 11px 10px;
+    margin-bottom: 0;
+
+    background-color: #bf7d83;
+    color: #ffffff;
+
+    box-shadow: none;
+}
+
+
+.ProductDetails .product-details-button:hover {
+    background-color: #a96c72;
+
+    box-shadow: none;
+}
+
+
+.ProductDetails .product-details-out-of-stock {
+    color: #a96c72;
+}
+
+
+/* =========================================
+   Loading / Error
+========================================= */
+
+.ProductDetails.product-details-loading {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 60vh;
+}
+
+
+.ProductDetails .product-details-error {
+    padding: 60px 0;
+
+    text-align: center;
+
+    color: #756c68;
+}
+
+
+/* =========================================
+   English / LTR
+========================================= */
+
+html[dir="ltr"] .ProductDetails .product-details-story {
+    direction: ltr;
+    text-align: left;
+}
+
+
+html[dir="ltr"] .ProductDetails .product-side {
+    direction: ltr;
+}
+
+
+html[dir="ltr"] .ProductDetails .product-details-info {
+    text-align: left;
+}
+
+
+html[dir="ltr"] .ProductDetails .product-story-line {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+html[dir="ltr"] .ProductDetails .product-story-text {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (max-width: 900px) {
+
+    .ProductDetails {
+        padding: 40px 0 60px;
+    }
+
+
+    .ProductDetails .product-details-layout {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 40px;
+    }
+
+
+    .ProductDetails .product-side {
+        order: -1;
+    }
+
+
+    .ProductDetails .product-details-story {
+        order: 2;
+
+        padding: 20px 0;
+    }
+
+
+    .ProductDetails .product-details-image {
+        min-height: 350px;
+        border-radius: 14px;
+    }
+
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 600px) {
+
+    .ProductDetails {
+        padding: 30px 0 45px;
+    }
+
+
+    .ProductDetails .product-details-layout {
+        gap: 30px;
+    }
+
+
+    .ProductDetails .product-details-image {
+        min-height: 300px;
+
+        border-radius: 12px;
+    }
+
+
+    .ProductDetails .product-details-image img {
+        padding: 12px;
+
+        border-radius: 14px;
+    }
+
+
+    .ProductDetails .product-details-info {
+        padding-top: 12px;
+    }
+
+
+    .ProductDetails .product-details-name {
+        font-size: 2rem;
+    }
+
+
+    .ProductDetails .product-details-button {
+        width: 100%;
+    }
+
+
+    .ProductDetails .product-details-story {
+        padding: 15px 0;
+    }
+
+
+    .ProductDetails .product-story-title {
+        font-size: 1.8rem;
+    }
+
+
+    .ProductDetails .product-story-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+
+    .ProductDetails .product-story-signature {
+        margin-top: 25px;
+
+        font-size: 1.4rem;
+    }
+
+}

@@ -5,10 +5,15 @@ export interface userModel {
     lastName: string;
     email: string;
     phone: string;
-    city:string;
-    address: string;
+
+    city: string;
+    street: string;
+    houseNumber: string;
+    apartment?: string;
+
     role: "customer" | "admin";
     isActive: boolean;
+
     createdAt: string;
     updatedAt: string;
 }
@@ -22,11 +27,15 @@ export interface LoginData {
 
 export interface RegisterData {
     firstName: string;
-    lastName:string;
-    email:string;
-    phone:string;
-    city:string;
-    address: string;
+    lastName: string;
+    email: string;
+    phone: string;
+
+    city: string;
+    street: string;
+    houseNumber: string;
+    apartment?: string;
+
     password: string;
 }
 

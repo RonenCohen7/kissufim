@@ -12,6 +12,12 @@
         "no": "No",
         "currency": "₪"
     },
+    "noami": {
+        "overline": "KISUUFIM",
+        "title": "Naomi",
+        "subtitle": "In memory of someone who always remains close",
+        "description": "Here we will share Naomi's story, the memories, the longing, and the moments that stay with us."
+    },
     "menu": {
         "shipping": "Free shipping on orders over ₪299",
         "naomi": "Naomi 💔",
@@ -25,7 +31,11 @@
         "search": "Search",
         "account": "My Account",
         "wishlist": "Favorites",
-        "cart": "Shopping Bag"
+        "cart": "Shopping Bag",
+        "addProduct": "Add Product",
+        "KISSUFIM": "KISSUFIM",
+        "helloUser": "Hi, {{name}}",
+        "logout": "Logout"
     },
     "footer": {
         "message": "Jewelry created to keep meaningful moments close.",
@@ -70,17 +80,59 @@
             "email": "Email",
             "phone": "Phone",
             "city": "City",
-            "address": "Address",
+            "street": "Street",
+            "houseNumber": "House Number",
+            "apartment": "Apartment",
             "password": "Password",
             "button": "Register",
             "haveAccount": "Already have an account?",
             "login": "Login"
         }
     },
+    "editProduct": {
+        "title": "Edit Product",
+        "subtitle": "Update jewelry details",
+        "name": "Product Name",
+        "description": "Description",
+        "price": "Price",
+        "stock": "Stock",
+        "category": "Category",
+        "image": "Product Image",
+        "changeImage": "Change Image",
+        "save": "Save Changes",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "loadError": "Failed to load product",
+        "error": "Failed to update product",
+        "validation": {
+            "nameRequired": "Product name is required",
+            "nameMinLength": "Product name must contain at least 2 characters",
+            "descriptionRequired": "Description is required",
+            "priceRequired": "Price is required",
+            "pricePositive": "Price must be greater than zero",
+            "stockRequired": "Stock is required",
+            "stockNonNegative": "Stock cannot be negative",
+            "categoryRequired": "Category is required",
+            "imageType": "Please select an image file",
+            "loginRequired": "Admin login is required"
+        }
+    },
+    "newOrder": {
+        "title": "New Order",
+        "customerDetails": "Customer Details",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total",
+        "createOrder": "Create Order",
+        "creating": "Creating Order...",
+        "created": "Order Created",
+        "loading": "Loading..."
+    },
     "products": {
         "title": "Our Jewelry",
         "all": "All Jewelry",
         "price": "Price",
+        "edit": "Edit",
         "stock": "Stock",
         "category": "Category",
         "description": "Description",
@@ -89,6 +141,46 @@
         "empty": "No products found",
         "subtitle": "Handmade jewelry created to keep meaningful moments close.",
         "loadError": "We couldn't load the jewelry. Please try again later."
+    },
+    "productDetails": {
+        "storyOverline": "A STORY IN EVERY DETAIL",
+        "storyTitle": "Jewelry with Meaning",
+        "storyText1": "Every Kisuufim piece is created from a connection to memory, touch, and the moments we want to keep close.",
+        "storyText2": "The small details, materials, and form come together into a piece that tells a story and carries a feeling long after the moment has passed."
+    },
+    "addProduct": {
+        "title": "Add Product",
+        "subtitle": "Add a new piece to the collection",
+        "name": "Product Name",
+        "description": "Description",
+        "price": "Price",
+        "stock": "Stock",
+        "category": "Category",
+        "selectCategory": "Select Category",
+        "image": "Product Image",
+        "chooseImage": "Choose Image",
+        "submit": "Add Product",
+        "saving": "Saving...",
+        "error": "Failed to add product",
+        "categories": {
+            "necklaces": "Necklaces",
+            "earrings": "Earrings",
+            "rings": "Rings",
+            "bracelets": "Bracelets"
+        },
+        "validation": {
+            "nameRequired": "Product name is required",
+            "nameMinLength": "Product name must contain at least 2 characters",
+            "descriptionRequired": "Description is required",
+            "descriptionMinLength": "Description must contain at least 5 characters",
+            "priceRequired": "Price is required",
+            "pricePositive": "Price must be greater than zero",
+            "stockRequired": "Stock is required",
+            "stockNonNegative": "Stock cannot be negative",
+            "categoryRequired": "Category is required",
+            "imageType": "Please select an image file",
+            "loginRequired": "You must be logged in as an admin to add a product"
+        }
     },
     "admin": {
         "products": {

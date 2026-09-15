@@ -5,8 +5,12 @@ export interface IUser extends Document {
     lastName: string;
     email: string;
     phone: string;
+
     city: string;
-    address: string;
+    street: string;
+    houseNumber: string;
+    apartment?: string;
+
     password: string;
     role: "customer" | "admin";
     isActive: boolean;
@@ -51,12 +55,23 @@ export const UserSchema = new Schema<IUser>({
         trim: true
     },
 
-    address: {
+    street: {
         type: String,
         required: [true, "Address missing"],
         trim: true
     },
 
+    houseNumber: {
+        type: String,
+        required: [true, "House number missing"],
+        trim: true
+    },
+
+    apartment: {
+        type: String,
+        required: false,
+        trim: true
+    },
     password: {
         type: String,
         required: [true, "Password missing"],
@@ -78,8 +93,8 @@ export const UserSchema = new Schema<IUser>({
     versionKey: false,
     timestamps: true,
     id: false
-   
-    }
+
+}
 );
 
 export const UserModel =

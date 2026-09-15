@@ -13,3 +13,27 @@ export interface productModel {
      createAt: string;
      updateAt:string;
 }
+
+export interface AddProductData {
+    name: string;
+    description: string;
+    price: number;
+    category: string;
+    stock: number;
+
+    image ?:File;
+
+    isActive: boolean
+}
+
+
+export interface UpdateProductData {
+    name: string;
+    description: string;
+    price: number;
+    category: string;
+    stock: number;
+
+    image? :File;
+    isActive: boolean;
+}

@@ -71,7 +71,9 @@ class OrderController {
                 userId,
                 items: request.body.items,
                 city: request.body.city,
-                address: request.body.address,
+                street: request.body.street,
+                houseNumber:request.body.houseNumber,
+                apartment: request.body.apartment,
                 phone: request.body.phone
             })
 

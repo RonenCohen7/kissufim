@@ -1,5 +1,4 @@
 export interface orderItemModel {
-
     productId: string;
     name: string;
     price: number;
@@ -7,10 +6,8 @@ export interface orderItemModel {
     imageName?: string;
 }
 
-
 export interface orderModel {
     _id: string;
-
     userId: string;
 
     items: orderItemModel[];
@@ -18,10 +15,10 @@ export interface orderModel {
     totalPrice: number;
 
     city: string;
-
-    address: string;
-
-    pone: string;
+    street: string;
+    houseNumber: string;
+    apartment?: string;
+    phone: string;
 
     status:
         | "pending"
@@ -29,35 +26,32 @@ export interface orderModel {
         | "processing"
         | "shipped"
         | "completed"
-        | "cancelled"
-
+        | "cancelled";
 
     paymentMethod?: string;
 
     isPaid: boolean;
-
     paidAt?: string;
 
     createdAt: string;
     updatedAt: string;
 }
 
-
 export interface createOrderData {
     items: {
         productId: string;
         quantity: number;
-    }[]
-    
+    }[];
+
     city: string;
-    
-    address: string;
-    
+    street: string;
+    houseNumber: string;
+    apartment?: string;
     phone: string;
 }
 
 export interface updateOrderData {
-    status?: orderModel["status"]
+    status?: orderModel["status"];
     paymentMethod?: string;
-    isPaid?: boolean
+    isPaid?: boolean;
 }

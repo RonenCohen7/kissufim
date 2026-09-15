@@ -20,7 +20,9 @@ export interface IOrder extends Document {
     totalPrice: number;
 
     city: string;
-    address: string;
+    street: string;
+    houseNumber: string;
+    apartment?: string;
     phone: string;
 
 
@@ -28,7 +30,7 @@ export interface IOrder extends Document {
     | "pending"
     | "paid"
     | "processing"
-    | "complete"
+    | "completed"
     | "cancelled"
 
 
@@ -88,49 +90,61 @@ export const OrderSchema = new Schema<IOrder>({
     },
 
     city: {
-        type:String,
-        required:[true, "City missing"],
+        type: String,
+        required: [true, "City missing"],
         trim: true
     },
 
-    address : {
-            type:String,
-            required: [true, "Address missing"],
-            trim: true
+    street: {
+        type: String,
+        required: [true, "Street missing"],
+        trim: true
+    },
+
+    houseNumber: {
+        type: String,
+        required: [true, "House number missing"],
+        trim: true
+    },
+
+    apartment: {
+        type: String,
+        required: false,
+        trim: true
     },
 
     phone: {
         type: String,
         required: [true, "Phone Missing"],
-        trim:true
+        trim: true
     },
 
     status: {
         type: String,
         enum: ["pending",
-                "paid",
-                "processing",
-                "shipped",
-                "completed",
-                "cancelled"
+            "paid",
+            "processing",
+            "shipped",
+            "completed",
+            "cancelled"
         ],
         default: "pending"
     },
 
     isPaid: {
-        type:Boolean,
-        default:false
+        type: Boolean,
+        default: false
     },
 
     paidAt: {
-        type:Date
+        type: Date
     }
 
-},{
+}, {
 
-    versionKey:false,
-    timestamps:true,
-    id:false
+    versionKey: false,
+    timestamps: true,
+    id: false
 })
 
 export const OrderModel = model<IOrder>("OrderModel", OrderSchema, "orders");

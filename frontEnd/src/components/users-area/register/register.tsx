@@ -18,7 +18,9 @@ export function Register() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [city, setCity] = useState("");
-    const [address, setAddress] = useState("");
+    const [street, setStreet] = useState("");
+    const [houseNumber, setHouseNumber] = useState("");
+    const [apartment, setApartment] = useState("");
     const [password, setPassword] = useState("");
 
     const [error, setError] = useState("");
@@ -36,7 +38,9 @@ export function Register() {
                 email,
                 phone,
                 city,
-                address,
+                street,
+                houseNumber,
+                apartment,
                 password
             });
 
@@ -133,9 +137,21 @@ export function Register() {
 
                         <TextField
                             fullWidth
-                            label={t("auth.register.address")}
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
+                            label={t("auth.register.street")}
+                            value={street}
+                            onChange={(e) => setStreet(e.target.value)}
+                        />
+                        <TextField
+                            fullWidth
+                            label={t("auth.register.houseNumber")}
+                            value={houseNumber}
+                            onChange={(e) => setHouseNumber(e.target.value)}
+                        />
+                        <TextField
+                            fullWidth
+                            label={t("auth.register.apartment")}
+                            value={apartment}
+                            onChange={(e) => setApartment(e.target.value)}
                         />
 
                     </div>

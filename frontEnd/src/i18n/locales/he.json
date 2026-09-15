@@ -16,6 +16,12 @@
         "message": "תכשיטים שנוצרו כדי לשמור רגעים קרוב.",
         "developedBy": "פיתוח ועיצוב"
     },
+    "noami": {
+        "overline": "כיסופים",
+        "title": "נעמי",
+        "subtitle": "לזכר מי שתמיד נשארת קרובה",
+        "description": "כאן נכתוב את הסיפור של נעמי, את הזיכרון, הגעגוע והרגעים שנשארים איתנו."
+    },
     "menu": {
         "shipping": "משלוח חינם בקנייה מעל ₪299",
         "products": "מוצרים",
@@ -31,7 +37,11 @@
         "search": "חיפוש",
         "account": "החשבון שלי",
         "wishlist": "מועדפים",
-        "cart": "סל קניות"
+        "cart": "סל קניות",
+        "addProduct": "הוספת מוצר",
+        "KISSUFIM": "כיסופים",
+        "helloUser": "שלום, {{name}}",
+        "logout": "התנתקות"
     },
     "home": {
         "hero": {
@@ -76,7 +86,9 @@
             "email": "אימייל",
             "phone": "טלפון",
             "city": "עיר",
-            "address": "כתובת",
+            "street": "רחוב",
+            "houseNumber": "מספר בית",
+            "apartment": "דירה",
             "password": "סיסמה",
             "button": "יצירת חשבון",
             "haveAccount": "כבר יש לכם חשבון?",
@@ -84,9 +96,21 @@
             "error": "לא ניתן ליצור את החשבון. נסו שוב."
         }
     },
+    "newOrder": {
+        "title": "הזמנה חדשה",
+        "customerDetails": "פרטי לקוח",
+        "price": "מחיר",
+        "quantity": "כמות",
+        "total": "סה״כ",
+        "createOrder": "יצירת הזמנה",
+        "creating": "יוצר הזמנה...",
+        "created": "הזמנה נוצרה",
+        "loading": "טוען..."
+    },
     "products": {
         "title": "התכשיטים שלנו",
         "all": "כל התכשיטים",
+        "edit": "עריכה",
         "price": "מחיר",
         "stock": "מלאי",
         "category": "קטגוריה",
@@ -96,6 +120,74 @@
         "empty": "לא נמצאו מוצרים",
         "subtitle": "תכשיטים שנוצרו בעבודת יד, כדי לשמור את הרגעים החשובים קרוב.",
         "loadError": "לא הצלחנו לטעון את התכשיטים. נסו שוב מאוחר יותר."
+    },
+    "productDetails": {
+        "storyOverline": "סיפור בכל פרט",
+        "storyTitle": "תכשיט עם משמעות",
+        "storyText1": "כל תכשיט בכיסופים נוצר מתוך חיבור לזיכרון, למגע ולרגעים שאנחנו רוצים לשמור קרוב.",
+        "storyText2": "הפרטים הקטנים, החומרים והצורה מתחברים יחד לתכשיט שמספר סיפור ונשאר איתנו הרבה אחרי הרגע שבו ענַדנו אותו."
+    },
+    "editProduct": {
+        "title": "עריכת מוצר",
+        "subtitle": "עדכון פרטי התכשיט",
+        "name": "שם המוצר",
+        "description": "תיאור",
+        "price": "מחיר",
+        "stock": "מלאי",
+        "category": "קטגוריה",
+        "image": "תמונת המוצר",
+        "changeImage": "החלפת תמונה",
+        "save": "שמירת שינויים",
+        "saving": "שומר...",
+        "cancel": "ביטול",
+        "loadError": "לא הצלחנו לטעון את המוצר",
+        "error": "אירעה שגיאה בעדכון המוצר",
+        "validation": {
+            "nameRequired": "יש להזין שם מוצר",
+            "nameMinLength": "שם המוצר חייב להכיל לפחות 2 תווים",
+            "descriptionRequired": "יש להזין תיאור",
+            "priceRequired": "יש להזין מחיר",
+            "pricePositive": "המחיר חייב להיות גדול מאפס",
+            "stockRequired": "יש להזין מלאי",
+            "stockNonNegative": "המלאי לא יכול להיות שלילי",
+            "categoryRequired": "יש לבחור קטגוריה",
+            "imageType": "יש לבחור קובץ תמונה",
+            "loginRequired": "נדרשת התחברות כמנהל"
+        }
+    },
+    "addProduct": {
+        "title": "הוספת מוצר",
+        "subtitle": "הוספת תכשיט חדש לקולקציה",
+        "name": "שם המוצר",
+        "description": "תיאור",
+        "price": "מחיר",
+        "stock": "מלאי",
+        "category": "קטגוריה",
+        "selectCategory": "בחירת קטגוריה",
+        "image": "תמונת המוצר",
+        "chooseImage": "בחירת תמונה",
+        "submit": "הוספת מוצר",
+        "saving": "שומר...",
+        "error": "אירעה שגיאה בהוספת המוצר",
+        "categories": {
+            "necklaces": "שרשראות",
+            "earrings": "עגילים",
+            "rings": "טבעות",
+            "bracelets": "צמידים"
+        },
+        "validation": {
+            "nameRequired": "יש להזין שם מוצר",
+            "nameMinLength": "שם המוצר חייב להכיל לפחות 2 תווים",
+            "descriptionRequired": "יש להזין תיאור",
+            "descriptionMinLength": "התיאור חייב להכיל לפחות 5 תווים",
+            "priceRequired": "יש להזין מחיר",
+            "pricePositive": "המחיר חייב להיות גדול מאפס",
+            "stockRequired": "יש להזין מלאי",
+            "stockNonNegative": "המלאי לא יכול להיות שלילי",
+            "categoryRequired": "יש לבחור קטגוריה",
+            "imageType": "יש לבחור קובץ תמונה",
+            "loginRequired": "יש להתחבר כמנהל כדי להוסיף מוצר"
+        }
     },
     "admin": {
         "products": {

@@ -15,59 +15,58 @@ class ProductController {
 
     public constructor() {
 
-        this.router.get("/api/admin/products",authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.getAllProductsForAdmin);
+        this.router.get("/api/admin/products", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.getAllProductsForAdmin);
 
         //Public
         this.router.get("/api/products", this.getAllProducts);
         this.router.get("/api/products/:_id", this.getOneProduct);
 
-
         //Admin
-        this.router.post("/api/products",authMiddleware.verifyLoggedIn,authMiddleware.verifyAdmin, this.addProduct);
-        this.router.put("/api/products/:_id", authMiddleware.verifyLoggedIn,authMiddleware.verifyAdmin, this.updateProduct);
+        this.router.post("/api/products", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.addProduct);
+        this.router.put("/api/products/:_id", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.updateProduct);
 
-        this.router.patch("/api/products/:_id/restore", authMiddleware.verifyLoggedIn,authMiddleware.verifyAdmin, this.restoreProduct);
+        this.router.patch("/api/products/:_id/restore", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.restoreProduct);
 
-        this.router.delete("/api/products/:_id", authMiddleware.verifyLoggedIn,authMiddleware.verifyLoggedIn, this.deleteProduct);
+        this.router.delete("/api/products/:_id", authMiddleware.verifyLoggedIn, authMiddleware.verifyLoggedIn, this.deleteProduct);
 
     }
 
-      // Get All product For admin
-    private async getAllProductsForAdmin(request:Request, response:Response, next:NextFunction):Promise<void>{
-        try{
+    // Get All product For admin
+    private async getAllProductsForAdmin(request: Request, response: Response, next: NextFunction): Promise<void> {
+        try {
             const products = await productService.getAllProductsForAdmin();
             response.json(products)
         }
-        catch(err:any){
+        catch (err: any) {
             next(err);
         }
     }
 
     // Get All product For users
-    private async getAllProducts(request:Request, response:Response, next:NextFunction):Promise<void>{
-        try{
+    private async getAllProducts(request: Request, response: Response, next: NextFunction): Promise<void> {
+        try {
             const products = await productService.getAllProducts();
             response.json(products)
         }
-        catch(err:any){
+        catch (err: any) {
             next(err);
         }
     }
 
     //Get One Product
-    private async getOneProduct(request:Request, response:Response, next: NextFunction):Promise<void>{
-        try{
+    private async getOneProduct(request: Request, response: Response, next: NextFunction): Promise<void> {
+        try {
             const _id = String(request.params._id)
             const product = await productService.getOneProduct(_id);
             response.json(product)
 
-        }catch(err:any){
+        } catch (err: any) {
             next(err)
         }
     }
 
     //Add product
-    private async addProduct(request:Request, response:Response, next:NextFunction):Promise<void>{
+    private async addProduct(request: Request, response: Response, next: NextFunction): Promise<void> {
 
         let imageName: string | undefined;
 
@@ -75,7 +74,7 @@ class ProductController {
 
             const image = request.files?.image as UploadedFile;
 
-            if(image) {
+            if (image) {
                 imageName = await productImage.save(image)
             }
 
@@ -83,8 +82,8 @@ class ProductController {
                 ...request.body,
                 price: Number(request.body.price),
                 stock: Number(request.body.stock),
-                isActive: 
-                    request.body.isActive == "true" || 
+                isActive:
+                    request.body.isActive == "true" ||
                     request.body.isActive == true,
                 imageName
             });
@@ -93,23 +92,27 @@ class ProductController {
 
             response.status(StatusCode.Created).json(addProduct);
 
-        } catch(err:any){
+        } catch (err: any) {
 
-            if(imageName) {
+            console.error("ADD PRODUCT ERROR:");
+            console.error(err);
+
+            if (imageName) {
                 await productImage.delete(imageName);
             }
-            next(err)
+
+            next(err);
         }
     }
 
 
 
     //update product
-    private async updateProduct(request:Request, response:Response, next:NextFunction):Promise<void>{
+    private async updateProduct(request: Request, response: Response, next: NextFunction): Promise<void> {
 
         let newImageName: string | undefined;
 
-        try{
+        try {
 
             const _id = String(request.params._id);
 
@@ -117,56 +120,56 @@ class ProductController {
 
             const image = request.files?.image as UploadedFile;
 
-            if(image){
+            if (image) {
                 newImageName = await productImage.save(image)
             }
 
-            const productData :any = {
+            const productData: any = {
                 ...request.body
             }
 
-            if(request.body.price !== undefined){
+            if (request.body.price !== undefined) {
                 productData.price = Number(request.body.price)
             }
 
-            if(request.body.stock !== undefined){
+            if (request.body.stock !== undefined) {
                 productData.stock = Number(request.body.stock)
             }
 
-            if(request.body.isActive !== undefined){
-                productData.isActive = 
-                    request.body.isActive == "true" || 
+            if (request.body.isActive !== undefined) {
+                productData.isActive =
+                    request.body.isActive == "true" ||
                     request.body.isActive == true
             }
 
-            if(newImageName){
+            if (newImageName) {
                 productData.imageName = newImageName
             }
 
             const updateProduct = await productService.updateProduct(_id, productData)
 
-           //delete
-           if (newImageName && oldProduct?.imageName && oldProduct.imageName !== newImageName){
+            //delete
+            if (newImageName && oldProduct?.imageName && oldProduct.imageName !== newImageName) {
                 await productImage.delete(oldProduct.imageName)
-           }
+            }
 
-           response.json(updateProduct);
+            response.json(updateProduct);
 
-        }catch(err:any){
+        } catch (err: any) {
             next(err)
         }
     }
 
 
     //Delete product
-    private async deleteProduct(request:Request, response:Response, next:NextFunction):Promise<void>{
+    private async deleteProduct(request: Request, response: Response, next: NextFunction): Promise<void> {
 
         try {
             const _id = String(request.params._id);
             await productService.deleteProduct(_id)
             response.status(StatusCode.NoContent).json()
 
-        }catch(err:any){
+        } catch (err: any) {
             next(err)
         }
 
@@ -175,7 +178,7 @@ class ProductController {
 
 
     //Restore product
-    private async restoreProduct(request:Request, response:Response, next:NextFunction):Promise<void>{
+    private async restoreProduct(request: Request, response: Response, next: NextFunction): Promise<void> {
 
         try {
 
@@ -185,7 +188,7 @@ class ProductController {
 
             response.json(restoreProduct);
 
-        } catch(err:any){
+        } catch (err: any) {
             next(err)
         }
     }

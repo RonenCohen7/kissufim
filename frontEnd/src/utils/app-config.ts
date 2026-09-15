@@ -6,10 +6,10 @@ class AppConfig {
 
     public readonly productUrl = this.baseUrl + "products"
 
-    public readonly adminProductUrl = this.baseUrl + "/admin/products";
+    public readonly adminProductUrl = this.baseUrl + "admin/products";
 
-    public readonly ordersUrl = this.baseUrl + "/orders";
-    public readonly adminOrderUrl = this.baseUrl + "/admin/orders";
+    public readonly ordersUrl = this.baseUrl + "orders";
+    public readonly adminOrderUrl = this.baseUrl + "admin/orders";
 }
 
 

@@ -12,7 +12,9 @@ interface CreateOrderData {
     userId: string;
     items: CreateOrderItem[];
     city: string;
-    address: string;
+    street: string;
+    houseNumber: string;
+    apartment?: string;
     phone: string;
 }
 
@@ -28,7 +30,7 @@ class OrderService {
 
 
     // Get one order
-    public async getOneOrder(_id: string, userId:string): Promise<IOrder> {
+    public async getOneOrder(_id: string, userId: string): Promise<IOrder> {
 
         const order = await OrderModel
             .findById(_id, userId)
@@ -102,7 +104,9 @@ class OrderService {
             items: orderItems,
             totalPrice,
             city: orderData.city,
-            address: orderData.address,
+            street: orderData.street,
+            houseNumber: orderData.houseNumber,
+            apartment: orderData.apartment,
             phone: orderData.phone,
             status: "pending",
             isPaid: false

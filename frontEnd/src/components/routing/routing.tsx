@@ -6,6 +6,9 @@ import { Login } from "../users-area/login/login";
 import { Register } from "../users-area/register/register";
 import { Page404 } from "../pages-area/page404/page404";
 import { Home } from "../pages-area/home/home";
+import { NoamiPage } from "../pages-area/noami-page/noami-page";
+import { ProductDetails } from "../products-area/product-details/product-details";
+import { NewOrder } from "../orders-area/new-order/new-order";
 
 
 export function Routing() {
@@ -19,6 +22,12 @@ export function Routing() {
             <Route path="/product/add" element={<AddProduct/>}/>
 
             <Route path="/product/edit/:_id" element={<EditProduct/>}/>
+
+            <Route path="/product-details/:_id" element={<ProductDetails/>}/>
+
+            <Route path="/noami-page" element={<NoamiPage/>}/>
+
+            <Route path="/orders/new/:productId" element={<NewOrder />}/>
 
 
 

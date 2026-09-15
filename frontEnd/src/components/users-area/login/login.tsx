@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
@@ -11,6 +11,9 @@ import "./login.css";
 export function Login() {
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const returnTo = location.state?.returnTo || "/products";
+
     const { t } = useTranslation();
 
     const [email, setEmail] = useState("");
@@ -31,7 +34,7 @@ export function Login() {
 
             localStorage.setItem("token", token);
 
-            navigate("/products");
+            navigate(returnTo, {replace: true} );
 
         }
         catch (err: any) {
