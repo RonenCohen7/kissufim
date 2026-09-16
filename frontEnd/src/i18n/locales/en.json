@@ -176,7 +176,11 @@
         "total": "Total",
         "orderCreated": "Your order was created successfully ✓",
         "orderCreatedMessage": "Thank you for your order. Your order details appear below.",
-        "proceedToPayment": "Proceed to Payment"
+        "proceedToPayment": "Proceed to Payment",
+        "customerDetails": "Customer Details",
+        "paymentDetails": "Payment Details",
+        "paymentMethod": "Payment Method",
+        "paidAt": "Payment Date"
     },
     "orderStatus": {
         "pending": "Pending Payment",

@@ -5,6 +5,7 @@ import { Button, FormControl, MenuItem, Select } from "@mui/material";
 import { orderService } from "../../../service/order-service";
 import type { orderModel } from "../../../models/order-model";
 import { dialogService } from "../../../service/dialogService";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -13,6 +14,8 @@ export function AdminOrders() {
     const { t } = useTranslation();
 
     const [orders, setOrders] = useState<orderModel[]>([]);
+
+    const navigate = useNavigate();
 
 
 
@@ -94,7 +97,10 @@ export function AdminOrders() {
             <h1>{t("adminOrders.title")}</h1>
 
             {orders.map(order => (
-                <div className="admin-order" key={order._id}>
+                <div className="admin-order"
+                 key={order._id}
+                 onClick={()=> navigate(`/orders/${order._id}`)}
+                 >
 
                     <p>
                         {t("adminOrders.orderNumber")}:{order._id}

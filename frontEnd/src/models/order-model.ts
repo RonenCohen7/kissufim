@@ -8,7 +8,7 @@ export interface orderItemModel {
 
 export interface orderModel {
     _id: string;
-    userId: string;
+    userId: orderUserModel;
 
     items: orderItemModel[];
 
@@ -36,6 +36,15 @@ export interface orderModel {
 
     createdAt: string;
     updatedAt: string;
+}
+
+
+export interface orderUserModel {
+    _id: string;
+    firstName:string;
+    lastName:string;
+    email:string;
+    phone:string;
 }
 
 export interface createOrderData {

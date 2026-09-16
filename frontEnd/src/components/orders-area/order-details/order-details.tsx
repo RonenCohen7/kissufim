@@ -9,11 +9,15 @@ import { orderService } from "../../../service/order-service";
 import "./order-details.css";
 import i18n from "../../../i18n/i18n";
 import { appConfig } from "../../../utils/app-config";
+import { authService } from "../../../service/auth-service";
+
 
 export function OrderDetails() {
 
     const { _id } = useParams();
     const { t } = useTranslation();
+
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const navigate = useNavigate();
 
@@ -24,24 +28,25 @@ export function OrderDetails() {
     useEffect(() => {
 
         const loadOrder = async () => {
-
             try {
-
                 if (!_id) {
-                    setError("Order ID missing");
+                    setError("Order ID missing")
                     return;
                 }
 
-                const token = localStorage.getItem("token");
-
+                const token = localStorage.getItem("token")
                 if (!token) {
-                    setError("User not logged in");
-                    return;
+                    setError("User not logged in")
+                    return
                 }
 
-                const order = await orderService.getOneOrder(_id, token);
+                const currentUser = await authService.getCurrentUser(token)
 
-                setOrder(order);
+                setIsAdmin(currentUser.role === "admin");
+
+                const order = await orderService.getOneOrder(_id, token)
+
+                setOrder(order)
 
             }
             catch (err) {
@@ -110,10 +115,12 @@ export function OrderDetails() {
                     </p>
 
                 </div>
-                <div className="order-success">
-                    <h2>{t("orderDetails.orderCreated")}</h2>
-                    <p>{t("orderDetails.orderCreatedMessage")}</p>
-                </div>
+                {!isAdmin && (
+                    <div className="order-success">
+                        <h2>{t("orderDetails.orderCreated")}</h2>
+                        <p>{t("orderDetails.orderCreatedMessage")}</p>
+                    </div>
+                )}
 
                 <div className="order-details-meta">
 
@@ -189,6 +196,23 @@ export function OrderDetails() {
 
                 </div>
 
+                {isAdmin && (
+                    <div className="order-details-section">
+
+                        <h2>{t("orderDetails.customerDetails")}</h2>
+
+                        <div className="order-customer-details">
+                            <p>
+                                {order.userId.firstName} {order.userId.lastName}
+                            </p>
+
+                            <p>{order.userId.email}</p>
+
+                            <p>{order.userId.phone}</p>
+                        </div>
+
+                    </div>
+                )}
 
                 <div className="order-details-section">
 
@@ -216,6 +240,33 @@ export function OrderDetails() {
                     </div>
 
                 </div>
+                {order.isPaid && (
+                    <div className="order-details-section">
+
+                        <h2>{t("orderDetails.paymentDetails")}</h2>
+
+                        <div className="order-payment-details">
+
+                            {order.paymentMethod && (
+                                <p>
+                                    {t("orderDetails.paymentMethod")}:{" "}
+                                    {order.paymentMethod}
+                                </p>
+                            )}
+
+                            {order.paidAt && (
+                                <p>
+                                    {t("orderDetails.paidAt")}:{" "}
+                                    {new Date(order.paidAt).toLocaleDateString(
+                                        i18n.language === "he" ? "he-IL" : "en-US"
+                                    )}
+                                </p>
+                            )}
+
+                        </div>
+
+                    </div>
+                )}
 
 
                 <div className="order-details-summary">
@@ -231,7 +282,7 @@ export function OrderDetails() {
 
                 </div>
 
-                {!order.isPaid && (
+                {!isAdmin && !order.isPaid && (
                     <Button
                         variant="contained"
                         className="order-payment-button"

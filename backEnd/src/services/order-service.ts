@@ -37,6 +37,7 @@ class OrderService {
 
         const order = await OrderModel
             .findById(_id)
+            .populate("userId","firstName lastName email phone")
             .exec();
 
         if (!order) {

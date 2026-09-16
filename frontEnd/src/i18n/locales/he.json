@@ -147,7 +147,11 @@
         "total": "סה״כ",
         "orderCreated": "ההזמנה נוצרה בהצלחה ✓",
         "orderCreatedMessage": "תודה על ההזמנה. פרטי ההזמנה שלך מופיעים מטה.",
-        "proceedToPayment": "מעבר לתשלום"
+        "proceedToPayment": "מעבר לתשלום",
+        "customerDetails": "פרטי לקוח",
+        "paymentDetails": "פרטי תשלום",
+        "paymentMethod": "אמצעי תשלום",
+        "paidAt": "תאריך תשלום"
     },
     "cart": {
         "title": "סל הקניות",

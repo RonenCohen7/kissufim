@@ -16,7 +16,7 @@ class MakeService {
 
         const user = await UserModel
             .findById(order.userId)
-            .select("firstName lastName")
+            .select("firstName lastName email")
             .lean();
 
         const customer = user 
@@ -34,6 +34,7 @@ class MakeService {
                     orderId: order._id.toString(),
                     date: order.createdAt,
                     customer: customer,
+                    email: user?.email || "",
                     phone: order.phone,
                     items: items,
                     amount: order.totalPrice,
