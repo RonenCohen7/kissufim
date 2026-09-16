@@ -1,9 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./new-order.css";
 import { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import { productService } from "../../../service/product-service";
-import type { productModel } from "../../../models/product-model";
+
 
 import { authService } from "../../../service/auth-service";
 import type { userModel } from "../../../models/user-model";
@@ -11,19 +10,24 @@ import type { createOrderData } from "../../../models/order-model";
 import { orderService } from "../../../service/order-service";
 import { useTranslation } from "react-i18next";
 
+import { cartService } from "../../../service/cart-service";
+import type { cartItemModel } from "../../../models/cart-model";
+
 export function NewOrder() {
 
 
 
-    const { productId } = useParams();
+
     const navigate = useNavigate();
     const { t } = useTranslation();
 
 
 
-    const [product, setProduct] = useState<productModel | null>(null);
-    const [quantity, setQuantity] = useState(1);
-    const totalPrice = product?.price! * quantity;
+
+    const [cart] = useState<cartItemModel[]>(cartService.getCart());
+
+    const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
 
     const [user, setUser] = useState<userModel | null>(null)
 
@@ -40,45 +44,33 @@ export function NewOrder() {
             .catch(console.error)
     }, []);
 
-    useEffect(() => {
-        if (!productId) return;
 
-        productService
-            .getOneProduct(productId!)
-            .then(setProduct)
-            .catch(console.error)
-
-
-    }, [productId]);
-
-    if (!product) {
-        return <div className="newOrder">Loading...</div>
-    }
 
 
 
 
     const createOrder = async () => {
-
-        if (!user || !product) return;
+        console.log("click on create new order....");
+        console.log("user:", user);
+        console.log("cart:", cart);
+        console.log("token:", localStorage.getItem("token"));
+        if (!user || cart.length === 0) return;
 
         const token = localStorage.getItem("token")
         if (!token) return;
 
         const orderData: createOrderData = {
-            items: [
-
-                {
-                    productId: product._id,
-                    quantity: quantity
-                }
-            ],
+            items: cart.map(item => ({
+                productId: item.productId,
+                quantity: item.quantity
+            })),
             city: user.city,
             street: user.street,
             houseNumber: user.houseNumber,
             apartment: user.apartment,
             phone: user.phone
         }
+
 
         try {
 
@@ -91,6 +83,8 @@ export function NewOrder() {
             console.log("order created", newOrder);
 
             setOrderCreated(true);
+
+            cartService.clearCart()
 
             navigate(`/orders/${newOrder._id}`)
 
@@ -121,45 +115,49 @@ export function NewOrder() {
                     <p>{user.street}</p>
                     <p>{user.houseNumber}</p>
                     <p>{user.apartment}</p>
-                    
+
 
                 </div>
             )}
 
-            {product?.imageUrl && (
-                <img
-                    src={product.imageUrl}
-                    alt={product.name}
-                />
-            )}
+            <div className="order-items">
 
-            <h2>{product?.name}</h2>
+                {cart.map(item => (
 
-            <p>{product?.description}</p>
+                    <div
+                        className="order-item"
+                        key={item.productId}
+                    >
 
-            <p>
-                {t("newOrder.price")}:{" "}
-                {product.price.toLocaleString()}{" "}
-                {t("common.currency")}
-            </p>
+                        {item.imageUrl && (
+                            <img
+                                src={item.imageUrl}
+                                alt={item.name}
+                            />
+                        )}
 
-            <div className="order-quantity">
+                        <div>
 
-                <button
-                    onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                >
-                    -
-                </button>
+                            <h2>{item.name}</h2>
 
-                <span>{quantity}</span>
+                            <p>
+                                {t("newOrder.price")}:{" "}
+                                {item.price.toLocaleString()}{" "}
+                                {t("common.currency")}
+                            </p>
 
-                <button
-                    onClick={() => setQuantity(prev => Math.max(1, prev + 1))}
-                >
-                    +
-                </button>
+                            <p>
+                                {t("cart.quantity")}: {item.quantity}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                ))}
 
             </div>
+
             <h3>
                 {t("newOrder.total")}:{" "}
                 {totalPrice.toLocaleString()}{" "}

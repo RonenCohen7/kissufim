@@ -3,6 +3,7 @@ import { orderService } from "../services/order-service";
 import { authMiddleware } from "../middleware/auth-middleware";
 import { StatusCode } from "../model/enums";
 
+
 class OrderController {
 
     public readonly router = express.Router();
@@ -10,14 +11,17 @@ class OrderController {
 
     public constructor() {
 
-        this.router.get("/api/orders", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.getAllOrders);
+        this.router.get("/api/admin/orders", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.getAllOrders);
         this.router.put("/api/admin/orders/:_id", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.updateOrder);
         this.router.delete("/api/admin/orders/:_id", authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.deleteOrder);
+        this.router.patch("/api/admin/orders/:_id/confirm-payment",authMiddleware.verifyLoggedIn, authMiddleware.verifyAdmin, this.confirmPayment);
 
 
         this.router.get("/api/orders/:_id", authMiddleware.verifyLoggedIn, this.getOneOrder)
 
         this.router.post("/api/orders", authMiddleware.verifyLoggedIn, this.createOrder);
+
+        this.router.patch("/api/orders/:_id/report-payment", authMiddleware.verifyLoggedIn, this.reportPayment);
 
 
 
@@ -33,6 +37,23 @@ class OrderController {
             response.json(orders)
 
         } catch (err: any) {
+            next(err)
+        }
+    }
+
+
+    //Admin confirm payed
+    private async confirmPayment(request: Request, response: Response, next: NextFunction): Promise<void> {
+        
+        try {
+            const _id = String(request.params._id)
+
+            const order = await orderService.confirmPayment(_id)
+
+            response.json(order)
+
+        }
+        catch (err) {
             next(err)
         }
     }
@@ -72,7 +93,7 @@ class OrderController {
                 items: request.body.items,
                 city: request.body.city,
                 street: request.body.street,
-                houseNumber:request.body.houseNumber,
+                houseNumber: request.body.houseNumber,
                 apartment: request.body.apartment,
                 phone: request.body.phone
             })
@@ -116,6 +137,26 @@ class OrderController {
             response.status(StatusCode.NoContent).send();
 
         } catch (err: any) {
+            next(err)
+        }
+    }
+
+
+    //Report payment
+    private async reportPayment(request: Request, response: Response, next: NextFunction): Promise<void> {
+
+        try {
+
+            const _id = String(request.params._id);
+
+            const userId = response.locals.user.userId;
+
+            const order = await orderService.reportPayment(_id, userId)
+
+            response.json(order)
+
+        } catch (err) {
+
             next(err)
         }
     }

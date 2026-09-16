@@ -83,6 +83,37 @@ class OrderService {
             }
         );
     }
+
+
+    //Report Payment Customer
+    public async reportPayment(_id:string, token:string):Promise<orderModel>{
+
+        const response = await axios.patch<orderModel>(
+            `${appConfig.ordersUrl}/${_id}/report-payment`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        )
+        return response.data;
+    }
+
+    //Confirm Payment Admin
+    public async confirmPayment(_id:string, token:string):Promise<orderModel>{
+
+        const response = await axios.patch<orderModel>(
+            `${appConfig.adminOrderUrl}/${_id}/confirm-payment`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        )
+        return response.data;
+    }
 }
 
 

@@ -35,7 +35,8 @@
         "addProduct": "Add Product",
         "KISSUFIM": "KISSUFIM",
         "helloUser": "Hi, {{name}}",
-        "logout": "Logout"
+        "logout": "Logout",
+        "ordersManagement": "Order Management"
     },
     "footer": {
         "message": "Jewelry created to keep meaningful moments close.",
@@ -117,7 +118,6 @@
             "loginRequired": "Admin login is required"
         }
     },
-    
     "newOrder": {
         "title": "New Order",
         "customerDetails": "Customer Details",
@@ -130,33 +130,62 @@
         "loading": "Loading..."
     },
     "cart": {
-    "title": "Shopping Cart",
-    "empty": "Your shopping cart is empty",
-    "quantity": "Quantity",
-    "remove": "Remove from cart",
-    "total": "Total",
-    "checkout": "Continue to Checkout"
-},
+        "title": "Shopping Cart",
+        "empty": "Your shopping cart is empty",
+        "quantity": "Quantity",
+        "remove": "Remove from cart",
+        "total": "Total",
+        "checkout": "Continue to Checkout"
+    },
+    "adminOrders": {
+        "title": "Order Management",
+        "orderNumber": "Order Number",
+        "total": "Total",
+        "status": "Status",
+        "confirmPayment": "Confirm Payment",
+        "confirmPaymentTitle": "Confirm Payment Received",
+        "confirmPaymentText": "Have you verified that the payment was received via Bit?",
+        "paymentConfirmedTitle": "Payment Confirmed",
+        "paymentConfirmedText": "The order was marked as paid and the inventory was updated"
+    },
+    "payment": {
+        "title": "Payment",
+        "loading": "Loading order details...",
+        "orderNumber": "Order number:",
+        "totalPaid": "Total to pay:",
+        "pay": "Proceed to Payment",
+        "bitTitle": "Payment via Bit",
+        "bitTransfer": "Please transfer via Bit:",
+        "bitDetails": "Payment details:",
+        "bitInstructions": "After completing the transfer, click \"I transferred the payment\"",
+        "paymentTransferred": "I transferred the payment",
+        "cancel": "Cancel",
+        "paymentReportedTitle": "Payment reported successfully",
+        "paymentReportedText": "We received your notification. The order is awaiting payment confirmation."
+    },
     "orderDetails": {
-    "title": "Order Details",
-    "subtitle": "Thank you for choosing KISUUFIM. Your order details are shown below.",
-    "orderNumber": "Order Number",
-    "date": "Order Date",
-    "status": "Status",
-    "items": "Order Items",
-    "quantity": "Quantity",
-    "shipping": "Shipping Details",
-    "apartment": "Apartment",
-    "total": "Total"
-},
-"orderStatus": {
-    "pending": "Pending Payment",
-    "paid": "Paid",
-    "processing": "Processing",
-    "shipped": "Shipped",
-    "completed": "Completed",
-    "cancelled": "Cancelled"
-},
+        "title": "Order Details",
+        "subtitle": "Thank you for choosing KISUUFIM. Your order details are shown below.",
+        "orderNumber": "Order Number",
+        "date": "Order Date",
+        "status": "Status",
+        "items": "Order Items",
+        "quantity": "Quantity",
+        "shipping": "Shipping Details",
+        "apartment": "Apartment",
+        "total": "Total",
+        "orderCreated": "Your order was created successfully ✓",
+        "orderCreatedMessage": "Thank you for your order. Your order details appear below.",
+        "proceedToPayment": "Proceed to Payment"
+    },
+    "orderStatus": {
+        "pending": "Pending Payment",
+        "paid": "Paid",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+    },
     "products": {
         "title": "Our Jewelry",
         "all": "All Jewelry",

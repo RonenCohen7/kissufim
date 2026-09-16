@@ -1,0 +1,93 @@
+.AdminOrders {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+    direction: rtl;
+}
+
+.AdminOrders h1 {
+    margin: 0 0 40px;
+    text-align: center;
+
+    font-size: 2rem;
+    font-weight: 500;
+    color: #292524;
+}
+
+.admin-order {
+    background-color: #ffffff;
+    border: 1px solid #e8ddd5;
+
+    padding: 24px 28px;
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.admin-order p {
+    margin: 0;
+    color: #292524;
+    font-size: 0.9rem;
+}
+
+.admin-order p:first-child {
+    flex: 1;
+}
+
+.admin-order .MuiFormControl-root {
+    min-width: 140px;
+}
+
+.admin-order .MuiOutlinedInput-root {
+    background-color: #faf7f2;
+    border-radius: 2px;
+}
+
+.admin-order .MuiOutlinedInput-notchedOutline {
+    border-color: #d8c6ae;
+}
+
+.admin-order .MuiSelect-select {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+}
+
+.admin-order .MuiButton-root {
+    min-width: 150px;
+
+    background-color: #bf7d83;
+    color: white;
+
+    border-radius: 2px;
+    box-shadow: none;
+
+    padding: 10px 18px;
+}
+
+.admin-order .MuiButton-root:hover {
+    background-color: #a96c72;
+    box-shadow: none;
+}
+
+@media (max-width: 750px) {
+    .AdminOrders {
+        padding: 40px 20px 70px;
+    }
+
+    .admin-order {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .admin-order .MuiFormControl-root {
+        width: 100%;
+    }
+
+    .admin-order .MuiButton-root {
+        width: 100%;
+    }
+}

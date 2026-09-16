@@ -22,6 +22,7 @@ export interface orderModel {
 
     status:
         | "pending"
+        | "payment_reported"
         | "paid"
         | "processing"
         | "shipped"

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { CircularProgress } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
+import { Button, CircularProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import type { orderModel } from "../../../models/order-model";
@@ -14,6 +14,8 @@ export function OrderDetails() {
 
     const { _id } = useParams();
     const { t } = useTranslation();
+
+    const navigate = useNavigate();
 
     const [order, setOrder] = useState<orderModel | null>(null);
     const [loading, setLoading] = useState(true);
@@ -108,7 +110,10 @@ export function OrderDetails() {
                     </p>
 
                 </div>
-
+                <div className="order-success">
+                    <h2>{t("orderDetails.orderCreated")}</h2>
+                    <p>{t("orderDetails.orderCreatedMessage")}</p>
+                </div>
 
                 <div className="order-details-meta">
 
@@ -174,7 +179,11 @@ export function OrderDetails() {
                                 {t("common.currency")}
                             </strong>
 
+
+
                         </div>
+
+
 
                     ))}
 
@@ -222,7 +231,19 @@ export function OrderDetails() {
 
                 </div>
 
+                {!order.isPaid && (
+                    <Button
+                        variant="contained"
+                        className="order-payment-button"
+                        onClick={() => navigate(`/payment/${order._id}`)}
+                    >
+                        {t("orderDetails.proceedToPayment")}
+                    </Button>
+                )}
+
             </div>
+
+
 
         </div>
     );

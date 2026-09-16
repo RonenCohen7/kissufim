@@ -11,14 +11,18 @@ class AppConfig {
     public readonly isProduction = process.env.ENVIRONMENT === "production";
 
     public readonly productsImagesPath =
-    process.env.PRODUCTS_IMAGES_PATH || "uploads/products";
+        process.env.PRODUCTS_IMAGES_PATH || "uploads/products";
 
     public readonly jwtSecret = process.env.JWT_SECRET || "development-secret";
-    
+
     public readonly port = process.env.PORT;
     public readonly mongodbConnectionString = process.env.MONGO_CONNECTION_STRING!;
     public readonly imagesUrl = process.env.IMAGES_URL;
     public readonly hashSalt = process.env.HASH_SALT;
+
+
+
+    public readonly makeNewOrderWebhookUrl = process.env.MAKE_NEW_ORDER_WEBHOOK_URL;
 }
 
 export const appConfig = new AppConfig();

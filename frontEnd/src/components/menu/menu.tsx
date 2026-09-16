@@ -8,7 +8,7 @@ import {
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import ReceiptLongOutlinedIcon from "@mui/icons-material/ReceiptLongOutlined";
 import "./menu.css";
 import { useEffect, useState } from "react";
 
@@ -68,9 +68,9 @@ export function Menu() {
         <header className="Menu">
 
             {/* Top Strip */}
-            <div className="top-strip">
+            {/* <div className="top-strip">
                 {t("menu.shipping")}
-            </div>
+            </div> */}
 
 
             {/* Main Header */}
@@ -138,15 +138,15 @@ export function Menu() {
                     <IconButton
                         className="header-icon"
                         aria-label={t("menu.cart")}
-                        onClick={()=> navigate("/cart")}
+                        onClick={() => navigate("/cart")}
                     >
                         <ShoppingBagOutlined />
                     </IconButton>
 
-                     <IconButton
+                    <IconButton
                         className="header-icon"
                         aria-label={t("menu.cart")}
-                        onClick={()=> navigate("/products")}
+                        onClick={() => navigate("/products")}
                     >
                         <StorefrontOutlinedIcon />
                     </IconButton>
@@ -198,7 +198,10 @@ export function Menu() {
                     {t("menu.naomi")}
                 </button>
 
-
+                <button onClick= {()=> navigate("/admin/orders")}>
+                   <ReceiptLongOutlinedIcon />
+                    {t("menu.ordersManagement")}
+                </button>
 
                 <button onClick={goToProducts}>
                     {t("menu.necklaces")}

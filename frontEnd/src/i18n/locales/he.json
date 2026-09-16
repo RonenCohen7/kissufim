@@ -22,6 +22,32 @@
         "subtitle": "לזכר מי שתמיד נשארת קרובה",
         "description": "כאן נכתוב את הסיפור של נעמי, את הזיכרון, הגעגוע והרגעים שנשארים איתנו."
     },
+    "adminOrders": {
+        "title": "ניהול הזמנות",
+        "orderNumber": "מספר הזמנה",
+        "total": "סה״כ",
+        "status": "סטטוס",
+        "confirmPayment": "אישור תשלום",
+        "confirmPaymentTitle": "אישור קבלת תשלום",
+        "confirmPaymentText": "האם בדקת שהתשלום התקבל ב-Bit?",
+        "paymentConfirmedTitle": "התשלום אושר",
+        "paymentConfirmedText": "ההזמנה סומנה כשולמה והמלאי עודכן"
+    },
+    "payment": {
+        "title": "תשלום",
+        "loading": "טוען פרטי הזמנה...",
+        "orderNumber": "מספר הזמנה:",
+        "totalPaid": "סה״כ לתשלום:",
+        "pay": "לתשלום",
+        "bitTitle": "תשלום באמצעות Bit",
+        "bitTransfer": "יש להעביר באמצעות Bit:",
+        "bitDetails": "לפרטים:",
+        "bitInstructions": "לאחר ביצוע ההעברה לחץ על \"העברתי תשלום\"",
+        "paymentTransferred": "העברתי תשלום",
+        "cancel": "ביטול",
+        "paymentReportedTitle": "התשלום דווח בהצלחה",
+        "paymentReportedText": "קיבלנו את הודעתך. ההזמנה ממתינה לאישור התשלום."
+    },
     "menu": {
         "shipping": "משלוח חינם בקנייה מעל ₪299",
         "products": "מוצרים",
@@ -41,7 +67,8 @@
         "addProduct": "הוספת מוצר",
         "KISSUFIM": "כיסופים",
         "helloUser": "שלום, {{name}}",
-        "logout": "התנתקות"
+        "logout": "התנתקות",
+        "ordersManagement": "ניהול הזמנות"
     },
     "home": {
         "hero": {
@@ -108,18 +135,20 @@
         "loading": "טוען..."
     },
     "orderDetails": {
-    "title": "פרטי ההזמנה",
-    "subtitle": "תודה שבחרתם בכיסופים. פרטי ההזמנה שלכם מופיעים כאן.",
-    "orderNumber": "מספר הזמנה",
-    "date": "תאריך הזמנה",
-    "status": "סטטוס",
-    "items": "פריטים בהזמנה",
-    "quantity": "כמות",
-    "shipping": "פרטי משלוח",
-    "apartment": "דירה",
-    "total": "סה״כ"
-    
-},
+        "title": "פרטי ההזמנה",
+        "subtitle": "תודה שבחרתם בכיסופים. פרטי ההזמנה שלכם מופיעים כאן.",
+        "orderNumber": "מספר הזמנה",
+        "date": "תאריך הזמנה",
+        "status": "סטטוס",
+        "items": "פריטים בהזמנה",
+        "quantity": "כמות",
+        "shipping": "פרטי משלוח",
+        "apartment": "דירה",
+        "total": "סה״כ",
+        "orderCreated": "ההזמנה נוצרה בהצלחה ✓",
+        "orderCreatedMessage": "תודה על ההזמנה. פרטי ההזמנה שלך מופיעים מטה.",
+        "proceedToPayment": "מעבר לתשלום"
+    },
     "cart": {
         "title": "סל הקניות",
         "empty": "סל הקניות שלך ריק",
@@ -128,14 +157,14 @@
         "total": "סה״כ",
         "checkout": "המשך להזמנה"
     },
-"orderStatus": {
-    "pending": "ממתינה לתשלום",
-    "paid": "שולמה",
-    "processing": "בטיפול",
-    "shipped": "נשלחה",
-    "completed": "הושלמה",
-    "cancelled": "בוטלה"
-},
+    "orderStatus": {
+        "pending": "ממתינה לתשלום",
+        "paid": "שולמה",
+        "processing": "בטיפול",
+        "shipped": "נשלחה",
+        "completed": "הושלמה",
+        "cancelled": "בוטלה"
+    },
     "products": {
         "title": "התכשיטים שלנו",
         "all": "כל התכשיטים",

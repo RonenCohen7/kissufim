@@ -1,0 +1,97 @@
+.Payment {
+    width: 100%;
+    max-width: 900px;
+    min-height: 520px;
+
+    margin: 0 auto;
+    padding: 70px 32px 90px;
+
+    text-align: center;
+}
+
+.Payment h1 {
+    margin: 0 0 35px;
+
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    color: #292524;
+}
+
+.Payment > p {
+    margin-bottom: 35px;
+
+    font-size: 0.9rem;
+    color: #756c68;
+}
+
+.payment-items {
+    max-width: 600px;
+    margin: 0 auto 30px;
+
+    padding: 24px 30px;
+
+    background-color: #ffffff;
+    border: 1px solid #e8ddd5;
+}
+
+.payment-items > div {
+    padding: 10px 0;
+
+    font-size: 1rem;
+    color: #292524;
+
+    border-bottom: 1px solid #eee7e2;
+}
+
+.payment-items > div:last-child {
+    border-bottom: none;
+}
+
+.Payment h2 {
+    margin: 35px 0 30px;
+
+    font-size: 1.35rem;
+    font-weight: 500;
+
+    color: #292524;
+}
+
+.Payment .MuiButton-root {
+    min-width: 220px;
+
+    padding: 13px 32px;
+
+    background-color: #bf7d83;
+    color: #ffffff;
+
+    border-radius: 2px;
+    box-shadow: none;
+
+    font-size: 0.9rem;
+}
+
+.Payment .MuiButton-root:hover {
+    background-color: #a96c72;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .Payment {
+        padding: 45px 20px 70px;
+        min-height: 450px;
+    }
+
+    .Payment h1 {
+        font-size: 1.7rem;
+    }
+
+    .payment-items {
+        padding: 18px;
+    }
+
+    .Payment .MuiButton-root {
+        width: 100%;
+    }
+}

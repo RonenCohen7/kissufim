@@ -29,7 +29,9 @@ export interface IOrder extends Document {
     status:
     | "pending"
     | "paid"
+    | "payment_reported"
     | "processing"
+    | "shipped"
     | "completed"
     | "cancelled"
 
@@ -38,6 +40,9 @@ export interface IOrder extends Document {
 
     isPaid: boolean;
     paidAt?: Date;
+
+    createdAt: Date;
+    updatedAt: Date;
 
 }
 
@@ -66,6 +71,7 @@ const OrderItemSchema = new Schema<IOrderItem>({
         required: true,
         min: 1
     },
+
     imageName: {
         type: String
     }
@@ -121,7 +127,9 @@ export const OrderSchema = new Schema<IOrder>({
 
     status: {
         type: String,
-        enum: ["pending",
+        enum: [
+            "pending",
+            "payment_reported",
             "paid",
             "processing",
             "shipped",
@@ -129,6 +137,10 @@ export const OrderSchema = new Schema<IOrder>({
             "cancelled"
         ],
         default: "pending"
+    },
+
+    paymentMethod: {
+        type: String
     },
 
     isPaid: {

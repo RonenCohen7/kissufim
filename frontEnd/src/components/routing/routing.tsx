@@ -11,6 +11,8 @@ import { ProductDetails } from "../products-area/product-details/product-details
 import { NewOrder } from "../orders-area/new-order/new-order";
 import { OrderDetails } from "../orders-area/order-details/order-details";
 import { Cart } from "../cart-area/cart/cart";
+import { Payment } from "../orders-area/payment/payment";
+import { AdminOrders } from "../orders-area/admin-orders/admin-orders";
 
 
 export function Routing() {
@@ -31,9 +33,13 @@ export function Routing() {
 
             <Route path="/cart" element={<Cart/>}/>
 
-            <Route path="/orders/new/:productId" element={<NewOrder />}/>
+            <Route path="/orders/new" element={<NewOrder />}/>
 
             <Route path="/orders/:_id" element={<OrderDetails/>}/>
+
+            <Route path="/payment/:orderId" element={<Payment />} />
+
+            <Route path="/admin/orders" element={<AdminOrders/>}/>
 
 
 

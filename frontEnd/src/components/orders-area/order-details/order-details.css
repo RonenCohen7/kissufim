@@ -119,7 +119,33 @@
     margin: 8px 0;
     color: #756c68;
 }
+.OrderDetails .MuiButton-root.order-payment-button {
+    display: block;
+    min-width: 220px;
+    margin: 30px auto 0;
+    padding: 13px 32px;
 
+    background-color: #bf7d83;
+    color: #ffffff !important;
+
+    border-radius: 2px;
+    box-shadow: none;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.OrderDetails .MuiButton-root.order-payment-button:hover {
+    background-color: #a96c72;
+    color: #ffffff !important;
+    box-shadow: none;
+}
+
+.OrderDetails .order-payment-button:hover {
+    background-color: #a96c72;
+    box-shadow: none;
+}
 .OrderDetails .order-details-summary {
     display: flex;
     align-items: center;
